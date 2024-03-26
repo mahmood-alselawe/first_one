@@ -1,0 +1,44 @@
+eureka:
+  instance:
+    hostname: localhost # Hostname of the Eureka server
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # URL of the Eureka server
+
+server:
+  port: 8090
+
+spring:
+  application:
+    name: students # Name of your Spring Boot application
+  config:
+    import: optional:configserver:http://localhost:8888
+  main:
+    allow-bean-definition-overriding: true
+  jpa:
+    generate-ddl: false
+    show-sql: false
+    hibernate:
+      ddl-auto: create
+      dialect: org.hibernate.dialect.MySQL8Dialect # Specify the MySQL dialect here
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/student_test?serverTimezone=UTC
+    username: root
+    password:
+
+application:
+  config:
+    student-url: http://localhost:8090/api/v1/students
+
+
+
+
+
+
+
+
+
+
+
+

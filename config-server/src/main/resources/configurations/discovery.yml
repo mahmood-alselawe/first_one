@@ -1,0 +1,18 @@
+server:
+  port: 8761 # Port on which the Eureka server will run
+eureka:
+  instance:
+    hostname: localhost # Hostname of the Eureka server
+  client:
+    registerWithEureka: false # Disable self-registration with Eureka server
+    fetchRegistry: false # Disable fetching registry from other Eureka servers
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ # URL of the Eureka server itself
+
+#spring: # till to spring will read the config from config server
+#  config:
+#    import: optional:configserver:http://localhost:8888
+#  application:
+#    name: discovery
+
+  #optional#will not fill to start up
